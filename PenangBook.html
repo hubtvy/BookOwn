@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penang Book</title>
+    <style>
+        .header {
+            background-image: url(photo3\ -\ Copy.jpg);
+            background-size: cover;
+            background-position: center;
+            padding: 10px 40px;
+            text-align: center;
+            border-bottom: 6px solid #fff;
+            position: relative; /* Added relative positioning */
+            height:140px;
+            border-radius: 20px; /* Added to round the corners */
+            overflow: hidden;
+            background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+        }
+
+       .title{
+            text-align: center; /* Center the text */
+            color:black;
+            padding:2px;
+            width:100%;
+            font-size:25px;
+            position: absolute; /*it doesn't affect the position of other elements you can use properties like top, bottom, left, and right to position it*/ 
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .navigation {
+            position: absolute;
+            top: 110px; /* Adjusted bottom spacing */
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+            padding: 8px;
+            border-radius: 10px;
+            width:100%;
+        }
+
+      .navigation a {
+            color: black;
+            margin: 0 35px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 23px;
+        }
+
+      .navigation a:hover {
+            color: orange;
+        }
+
+      .filters-container {
+            border: 1px solid #adadad;
+            padding: 20px;
+            position: absolute;
+            color: black;
+            border-radius: 10px;
+            width: 15%;
+            top: 60%;
+            left: 12%;
+            transform: translate(-50%, -50%);
+        }
+
+    
+        .filter-title {
+            margin-top: 0;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #adadad;
+            padding-bottom: 10px;
+            font-size:20px;
+            color: gray;
+        }
+
+        .filter-section {/*filter between the selection*/
+            margin-bottom: 30px;
+        }
+        .apartment-container {
+            border: 1px solid #adadad;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-left: 26%; /* Added to move the apartment more to the right */
+            width: 62%;
+            
+        }
+
+        .apartment-container img {
+            max-width: 280px; /* Maximum width of 100 pixels */
+            height: auto; /* Maximum height of 100 pixels */
+            border-radius: 10px;
+            margin-bottom: 40px; 
+        }
+        .apartment-container:hover {
+            background-color: rgba(233, 127, 6, 0.1); /* Change background color on hover */
+        }
+
+        .information {
+            margin-left: 320px; /* Added margin to create space between image and information */
+            margin-top: -320px;  /* Adjusted margin to move h2 and p up */
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .information h2 {
+            margin-top: -20px; 
+            margin-bottom: 20px; 
+            font-size: 30px;
+    }
+
+        .information p {
+        margin-bottom: 25px; /* Adjusted margin-bottom */
+        font-size: 20px;
+    }
+
+        .information .price {
+        position: absolute;
+        right: 20px;
+        bottom: 10px;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .information button {
+        position: absolute;
+        top: 35px;
+        right: -8px;
+        padding: 10px 10px; /* Adjusted padding */
+        background-color: orange;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        white-space: nowrap; /* Ensures "See availability" stays on a single line */
+        font-size: 15px;
+    }
+
+
+        .information button:hover {
+            background-color:orange;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="title">
+            <h1>BookOwn.com</h1>
+            <div class="navigation">
+                <a href="index.html">Home</a>
+                <a href="MelakaBook.html">Melaka</a>
+                <a href="PenangBook.html">Penang</a>
+                <a href="Attractions.html">Attractions</a>
+            </div>
+        </div>
+    </div>
+    <div class="filters-container">
+        <h2 class="filter-title">Filter By</h2>
+        <div class="filter-section">
+            <label for="budget">Budget(per night):</label>
+            <select name="budget" id="budget">
+                <option value="1-300">RM 80 - 200</option>
+                <option value="300-500">RM 201 - 350</option>
+                <option value="500-1000">RM 351 - 400+</option>
+            </select>
+        </div>
+        <div class="filter-section">
+            <label>Property Type:</label><br>
+            <input type="checkbox" name="type" id="type-hotel" value="hotel">
+            <label for="type-hotel">Hotel</label><br>
+            <input type="checkbox" name="type" id="type-apartment" value="apartment">
+            <label for="type-apartment">Apartment</label><br>
+            <input type="checkbox" name="type" id="type-house" value="house">
+            <label for="type-house">House</label><br>
+        </div>
+        <div class="filter-section">
+            <label>Property Rating:</label><br>
+            <input type="checkbox" name="rating" id="rating-1" value="1">
+            <label for="rating-1">1 Star</label><br>
+            <input type="checkbox" name="rating" id="rating-2" value="2">
+            <label for="rating-2">2 Stars</label><br>
+            <input type="checkbox" name="rating" id="rating-3" value="3">
+            <label for="rating-3">3 Stars</label><br>
+            <input type="checkbox" name="rating" id="rating-4" value="4">
+            <label for="rating-4">4 Stars</label><br>
+        </div>
+        <!-- Add more filter sections if needed -->
+    </div>
+    <div class="apartment-container">
+        <img src="ByTheSea_1.webp" alt="Apartment Image" >
+        <div class="information">
+            <h2>By The Sea Batu Ferringhi Penang</h2>
+            <p>🌟🌟🌟🌟</p>
+            <p><a href="https://maps.app.goo.gl/F9UbQXhPcWUkdiap6">Penang</a> - 12km from centre</p>
+            <p>Entire apartment - 2 bedrooms (4 beds) - 1 living room - 2 bathrooms - 1 kitchen </p>
+            <p>Free cancellation</p>
+            <div class="price">
+                MYR 590
+                <a href="ByTheSea.html"><button>See availability</button></a>
+            </div>
+        </div>
+    </div>
+    <div class="apartment-container">
+        <img src="Victoria_1.webp" alt="Hotel Image" >
+        <div class="information">
+            <h2>Victoria Garden Hotel</h2>
+            <p>🌟🌟🌟</p>
+            <p><a href="https://maps.app.goo.gl/qTVzwSKG3V9VKtfWA">Penang</a>- 1.3km from centre</p>
+            <p>Deluxe King Room - 1 extra - large double bed </p>
+            <p>Free cancellation</p>
+            <div class="price">
+                MYR 246
+                <a href="Victoria_Garden_Hotel.html"><button>See availability</button></a>
+            </div>
+        </div>
+    </div>
+    <div class="apartment-container">
+        <img src="Summer-1.webp" alt="House Image">
+        <div class="information">
+            <h2>Summer Home 15 Georgetown Adventist</h2>
+            <p>🌟</p>
+            <p><a href="https://maps.app.goo.gl/X86nzMeGF2j7AdGe7">Penang</a>- 2.8km from centre</p>
+            <p>Double or Twin Room with Private Bathroom - 2 single beds</p>
+            <p>Free cancellation</p>
+            <div class="price">
+                MYR 129
+                <a href="Summer_Home_15.html"><button>See availability</button></a>
+            </div>
+        </div>
+    </div>
+    </div>
+    <a href ="Home.html">Back</a>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookOwn</title>
+</head>
+<style>
+    body{
+        background-image: url(photo3.webp);
+        background-size: cover;  
+        background-position: center;
+        color:black;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column; 
+        position: relative; 
+
+    .title{
+        text-align: left;
+        padding:2px;
+        width:100%;
+        position: absolute; 
+        top: 0; 
+        left: 0; 
+    }
+    h1{
+        font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size:28px;
+        margin:0;
+        display:inline-block;
+        font-weight: bold;
+    }
+    h2{
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size:45px;
+        margin: -400px 780px 30px 0;
+        color: rgb(10, 10, 10);
+        font-weight: bold;
+        position: absolute; 
+        text-shadow: 2px 2px 2px rgba(4, 27, 96, 0.5); 
+    }
+
+    h3{
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size:45px;
+        margin: -280px 640px 20px 0;
+        color: rgb(10, 10, 10);
+        font-weight: bold;
+        position: absolute; 
+        text-shadow: 2px 2px 2px rgba(4, 27, 96, 0.5); 
+    }
+    .white-frame {/*white-frame is given a z-index of -1, so it will be behind the other content (h1 and h2)*/
+            background-color: rgb(251, 245, 245, 0.8);
+            width: 100%;
+            height: 30%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+            border-top-left-radius: 20px; /* Rounded top left corner */
+            border-top-right-radius: 20px; /* Rounded top right corner */
+        }
+
+
+        .searchbar {
+            margin-top: 360px;
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding-right: 20px; 
+        }
+
+        .searchbar form {
+            width: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .searchbar form .location-input select{
+            display: inline-block;
+            margin-left: 90px; 
+            margin-right: 40px;
+            padding: 10px;
+            border-radius: 20px;
+            border: none;
+            background-color: white;
+            width: 220px;
+            max-width: 300px;
+        }
+        .searchbar form .date-inputs {
+            flex: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .searchbar form .date-inputs input {
+            display: inline-block;
+            padding: 10px;
+            border-radius: 20px;
+            border: none;
+            background-color: white;
+            width: 150%;
+            max-width: 200px;
+        }
+
+        .searchbar form .date-inputs span {
+            margin: 0 10px; /* Adjust the margin as needed */
+        }
+       
+        .searchbar form .guests input[type="number"] {
+            display: inline-block;
+            margin-right: 75px;
+            padding: 10px;
+            border-radius: 20px;
+            border: none;
+            background-color: white;
+            width: 150%;
+            max-width: 200px;
+            box-sizing: border-box; /* Ensure padding and border are included in width */
+        }
+
+        .searchbar form button {
+            margin: -90px 20px -60px -80px; /* Adjusted margin-left */
+            padding: 12px;
+            border-radius: 20px;
+            border: none;
+            background-color: white;
+            width: 100%;
+            max-width: 150px;
+            cursor: pointer;
+            background-color: rgb(4, 27, 96);
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            align-self: flex-end;
+            display:block;
+        }
+
+        .searchbar form .date-inputs {
+            flex: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .searchbar form .location-input select {
+            flex: 1;
+        }
+
+        p {
+            margin-bottom: 10px;
+            position: absolute;
+            bottom: 20px;
+            color: black;
+            font-size: 15px;
+      }
+
+    </style>
+</head>
+<body>
+    <div class="title">
+        <h1>&nbsp; BookOwn.com</h1>
+    </div>
+    <h2>Stay Your Way</h2>
+    <h3>Anywhere, Anytime...</h3>
+    <div class="white-frame"></div>
+
+    <div class="searchbar">
+        <form id="searchForm" action="#" method="get">
+            <div class="location-input">
+                <select id="locations" name="locations">
+                    <option value="melaka">Melaka</option>
+                    <option value="Pinang">Pulau Pinang</option>
+                </select>
+            </div>
+    
+            <div class="date-inputs">
+                <input type="date" name="checkin" placeholder="Check-in">
+                <span>-</span>
+                <input type="date" name="checkout" placeholder="Check-out">
+            </div>
+    
+            <div class="guests">
+                <input type="number" name="guests" min="1" placeholder="Guests">
+            </div>
+    
+            <button type="submit">Search</button>
+            
+        </form>
+        <script>
+            document.getElementById("searchForm").addEventListener("submit", function (event) {
+                event.preventDefault(); // Prevent default form submission
+                var location = document.getElementById("locations").value;
+                var action = "";
+                if (location === "melaka") { // Change "Melaka" to "melaka"
+                    action = "MelakaBook.html"; 
+                } else if (location === "Pinang") { // Change "Penang" to "Pinang"
+                    action = "PenangBook.html";
+                } 
+                window.location.href = action; 
+            });
+        </script>
+    
+    </div>
+</body>    
+</html>

@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <title>Rz Homestay</title>
+    <style>
+
+          .header {
+            background-image: url(photo3\ -\ Copy.jpg);
+            background-size: cover;
+            background-position: center;
+            padding: 10px 40px;
+            text-align: center;
+            border-bottom: 6px solid #fff;
+            position: relative; /* Added relative positioning */
+            height:140px;
+            border-radius: 20px; /* Added to round the corners */
+            overflow: hidden;
+            background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+        }
+        .title{
+            text-align: center; /* Center the text */
+            color:black;
+            padding:2px;
+            width:100%;
+            font-size:25px;
+            position: absolute; /*it doesn't affect the position of other elements you can use properties like top, bottom, left, and right to position it*/ 
+            top: 35%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .navigation {
+            position: absolute;
+            top: 100px; /* Adjusted bottom spacing */
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+            padding: 8px;
+            border-radius: 10px;
+            width:100%;
+        }
+
+      .navigation a {
+            color: black;
+            margin: 0 35px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 23px;
+        }
+
+      .navigation a:hover {
+            color: orange;
+        }
+
+        h2{
+            font-size:30px;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-left:50px;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+
+        }
+        .image-gallery {
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            height: 70vh; /* Adjust height as needed */
+        }
+
+        .image-gallery img {
+            max-width: 100%;
+            max-height: 100%;
+            height: auto;
+            object-fit: contain; /* Maintain aspect ratio */
+        }
+
+
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 100;
+            text-decoration: none;
+        }
+
+        .prev {
+            left: 40px;
+        }
+
+        .next {
+            right:20px;
+        }
+
+        .bold {
+            font-weight: bold;
+            font-size: 30px;
+        }
+
+        h3{
+            font-size: 20px;
+            margin-left: 50px;
+            margin-top: 0;
+            margin-bottom: 0;
+            font-weight: lighter;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        p.reviews{
+            margin-left: 50px;
+            margin-top: 10px;
+            font-size:20px;
+        }
+
+        p{
+            margin-left: 50px;
+            margin-top: 23px;
+            margin-bottom: 20px;
+            width: 58%;
+            line-height: 1.5;
+        }
+        .line {
+            border-bottom: 1px solid #b9b7b7;
+            margin-top: 10px;
+            margin-left: 50px;
+            margin-bottom: 10px;
+            width:780px;
+        }
+        .line2 {
+            border-bottom: 1px solid #b9b7b7;
+            margin-top: 10px;
+            margin-left: 50px;
+            margin-bottom: 10px;
+        }
+
+        .read-more {
+            color: blue;
+            cursor: pointer;
+        }
+
+        #more {
+            margin-top: 10px;
+        }
+
+        .reservation-container {
+            width: 350px; /* Adjust the width as per your requirement */
+            border: 1px solid #ccc;
+            padding: 10px;
+            height: 578px;
+            margin-top: 5px; /* Move reservation container down */
+            margin-left: 55px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow effect */
+        }
+        .reservation-form h2 {
+            font-size: 25px;
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 20px;
+            margin-left: 27px; /* Adjusted left margin */
+        }
+
+        .reservation-form {
+            margin-bottom: 20px;
+        }
+
+        .reservation-button {
+            margin-top: 40px; /* Adjusted margin-top */
+            margin-bottom: 20px; /* Added margin-bottom */
+        }
+
+        table {
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        input[type="date"] {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .date-container {
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }   
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .guest-container {
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            width: 200px;
+            text-align: center;
+        }
+
+        .guest-total {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .guest-controls {
+            display: none;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .guest-label {
+            margin-right: 10px;
+        }
+        .guest-controls .guest-label {
+            margin-right: 10px;
+        }
+                
+        .guest-controls label {
+            margin-right: 10px;
+        }
+                
+        .guest-controls input {
+            width: 30px;
+            text-align: center;
+        }
+                
+        .guest-controls button {
+            background-color: #f0f0f0;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            margin: 0 5px; /* Add space between the buttons and input field */
+        }
+        .price-breakdown {
+            position: relative;
+        }
+        .reservation-button {
+            text-align: center;
+            margin-top: 20px; /* Adjust the top margin as needed */
+            margin-left:-10px;
+        }
+        .reservation-button button:hover {
+            background-color: orange;
+            color: white; /* Change text color to ensure visibility */
+        }
+        .facilities {
+            margin-left: 50px;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin-top: 8px;
+            margin-bottom: 10px;
+            width: 60%;
+            line-height: 1.5; /* Adjust this value as needed */
+            font-size: 23px;
+        }
+        .RoomFaciFrame {
+            border: 1px solid #b9b7b7;
+            padding: 5px;
+            width: 15%;
+            margin-left: 50px;
+            margin-bottom: 10px;
+            float: left;
+            margin-right: 7px;
+            font-size: 16px;
+        }
+        .RoomFaciFrame ul {
+            padding-left: 25px;
+        }
+
+        .RoomFaciFrame ul li {
+            margin-bottom: 5px; /* Added spacing between list items */
+        }
+
+     
+        .facititle{
+            font-size:20px;
+            font-weight: bold;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin-left: 14px;
+
+        }
+        .Subtitle{
+            font-size:27px;
+            font-weight: bold;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin-left: 55px;
+
+        }
+        iframe {
+            width: 85%;
+            height: 400px; /* Adjust height as needed */
+            border: none;
+            margin-left: 70px;
+        }
+
+        .apartment-info {
+            flex: 1;
+            margin-right: 20px;
+            margin-top: 20px;
+            margin-bottom: 10px; /* Adjusted margin-bottom */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="title">
+            <h1>BookOwn.com</h1>
+            <div class="navigation">
+                <a href="Index.html">Home</a>
+                <a href="MelakaBook.html">Melaka</a>
+                <a href="PenangBook.html">Penang</a>
+                <a href="Attractions.html">Attractions</a>
+            </div>
+        </div>
+    </div>
+        <div class="apartment-info">
+            <h2>Rz Homestay</h2>
+            <div class="image-gallery">
+                <img src="RZHomeStay-1.jpg" alt="Room">
+                <img src="RZHomeStay-bedroom1.jpg" alt="Bedroom1">
+                <img src="RZHomeStay-bedroom2.jpg" alt="Bedroom2">
+                <img src="RZHomeStay-bedroom3.jpg" alt="Bedroom3">
+                <img src="RZHomeStay-kitchen.jpg" alt="Kitchen">
+                <img src="RZHomeStay-toilet.jpg" alt="Toilet">
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+            <p></p>
+    
+            <h3 class="bold">HomeStay in Melaka</h3>
+            <h3>7 guests - 3 bedrooms • 1 living room • 2 bathrooms • 1 kitchen • 145m²
+                5 beds (1 single, 3 doubles, 1 sofa bed)</h3>
+            <p class="reviews">🌟🌟🌟🌟 &nbsp; 9.90 · 58 reviews</p>
+
+      <div class="line"></div>
+    </div>
+<script>
+     let slideIndex = 1;
+        showSlides(slideIndex);
+    
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+    
+    function showSlides(n) {
+        let i;
+        const slides = document.querySelectorAll('.image-gallery img');
+        if (n > slides.length) {
+            slideIndex = 1;
+        }
+        if (n < 1) {
+            slideIndex = slides.length;
+        }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = 'none';
+        }
+        slides[slideIndex - 1].style.display = 'block';
+    }
+    </script>
+
+    <p>
+        Rz Homestay is set in Melaka. 8.6km from Baba & Nyonya Heritage Museum, 8.7km from Straits Chinese Jewelry Museum Malacca,
+        and 9.3 km from The Stadthuys. The air-conditioned accomodation is 8.3km from Cheng Hoon Teng Temple, and guests can benefit 
+        from on-site private parking and complimentary WiFi. The accomodation features full-day security and private check-in and check out for guests. 
+        <a href="javascript:void(0);" class="read-more" onclick="showMore()">Read more</a>
+    </p>
+
+    
+    <div id="more" style="display: none;">
+     <p>
+        This holiday home is fitted with 3 bedrooms, a kitchen with a fridge and kitcherware, a flat-screen TV, a seating area and 2 bathrooms fitted with a shower.
+        For guests with children, the holiday home offers outdoor play equipment.<br> 
+     </p>
+
+    <p>
+        Porta de Santiogo is 10 km from Rz Homestay,while Menara Taming Sari is 10km from the property. The nearesr airport is Melaka International Airport, 5 km from the accommodation.<br>
+    </p>
+
+    <p>
+        Each unit features a balcony offering pool views, a satellite flat-screen TV, a dining area, a well-fitted kitchen and a private bathroom with shower, a hair dryer and free toiletries. 
+        A fridge and kitchenware are also available, as well as a kettle. At the apartment complex, each unit includes bed linen and towels.
+        A minimarket is available at the apartment.<br>
+    </p>
+        
+</div>
+    <script>
+    function showMore() {
+        var moreText = document.getElementById("more");
+        var readMoreBtn = document.querySelector('.read-more');
+
+        if (moreText.style.display === "none") {
+            moreText.style.display = "block";
+            readMoreBtn.innerHTML = "Read less";
+        } else {
+            moreText.style.display = "none";
+            readMoreBtn.innerHTML = "Read more";
+        }
+    }
+    </script>
+    
+    <p class="facilities">
+        <strong>Most popular facilities:</strong> <p>
+            Free WiFi &nbsp;<span class="bi bi-wifi"></span>
+            &nbsp; &nbsp;&nbsp;
+            Free parking <span class="bi bi-p-circle"></span>   
+            &nbsp; &nbsp;&nbsp;
+            Air conditioning <span class="bi bi-snow3"></span>
+            &nbsp; &nbsp;&nbsp;
+            Non-smoking rooms <img src="no-smoking-sign.png" alt="No smoking" style="width: 15px; height: auto; vertical-align: text-bottom";>
+            &nbsp; &nbsp;&nbsp;
+            Family rooms <img src="parental-control.png" alt="Parent" style="width: 15px; height: auto; vertical-align: text-bottom";>
+            
+    </p>
+    
+<div class="line"></div>
+
+<p style="font-weight: bold; font-size: 27px;">Availability</p>
+
+<div class="reservation-container">
+    <div class="reservation-form">
+        <h2>RM350/night</h2>
+        <table>
+            <tr>
+                <th>CHECK-IN</th>
+                <th>CHECKOUT</th>
+            </tr>
+            <tr>
+                <td><input type="date" value="Check In Date"></td>
+                <td><input type="date" value="Check Out Date"></td>
+                <tr>
+                    <th>Guests</th>
+                </tr>
+                <tr>
+                    <tr>
+                        <td colspan="2">
+                            <div class="guest-container" id="guests-container">
+                                <div class="guest-total">1</div>
+                                <div class="guest-controls">
+                                    <div class="guest-label">Adult:</div>
+                                    <button type="button" class="minus adult">-</button>
+                                    <input type="text" id="adults" name="adults" value="1" readonly>
+                                    <button type="button" class="plus adult">+</button>
+                                </div>
+                                <div class="guest-controls">
+                                    <div class="guest-label">Child:</div>
+                                    <button type="button" class="minus child">-</button>
+                                    <input type="text" id="children" name="children" value="0" readonly>
+                                    <button type="button" class="plus child">+</button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                <td colspan="3">
+                    <div class="price-breakdown">
+                        <table>
+                            <tr>
+                                <th>Total Price</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <button onclick="showPriceBreakdown()">Price is</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>RM350 x <span id="num-nights">0</span> nights = <span id="total-price">RM0</span></td>
+                            </tr>
+                            <tr>
+                                <td>Cleaning fee = <span id="cleaning-fee">RM0</span></td>
+                            </tr>
+                            <tr>
+                                <td>Total: <span id="total">RM0</span></td>
+                            </tr>
+                        </table>
+                        <div class="reservation-button">
+                            <button onclick="reserveNow()">Reserve Now</button>
+                        </div> 
+                    </div>
+                </td>
+            </tr>
+            
+                </table>
+                
+<script>
+    document.querySelectorAll('.guest-controls button').forEach(function(button) {
+    button.addEventListener('click', function() {
+    const isPlus = this.classList.contains('plus');
+    const isAdult = this.classList.contains('adult');
+    const input = isAdult ? document.getElementById('adults') : document.getElementById('children');
+    let value = parseInt(input.value);
+    if (isPlus) {
+        input.value = value + 1;
+    } else {
+        if (value > 0) {
+            input.value = value - 1;
+        }
+    }
+    updateGuestTotal();
+});
+});
+
+function updateGuestTotal() {
+    const adults = parseInt(document.getElementById('adults').value);
+    const children = parseInt(document.getElementById('children').value);
+    const totalGuests = adults + children;
+    document.querySelector('.guest-total').textContent = totalGuests + " Guest";
+    }
+
+    document.getElementById('guests-container').addEventListener('click', function() {
+    const controls = this.querySelectorAll('.guest-controls');
+    controls.forEach(function(control) {
+    control.style.display = 'flex';
+        });
+    });
+
+    updateGuestTotal(); // Initial update
+
+// Function to update the price breakdown
+function updatePriceBreakdown() {
+    const nightlyRate = 350; // RM148 per night
+    const numNights = calculateNumberOfNights(); // Calculate the number of nights
+    const total = nightlyRate * numNights; // Total price for the stay
+    const cleaningFee = 30; // Cleaning fee RM65
+
+    // Update the elements with the calculated values
+    document.getElementById('num-nights').textContent = numNights;
+    document.getElementById('total-price').textContent = 'RM' + total;
+    document.getElementById('cleaning-fee').textContent = 'RM' + cleaningFee;
+
+    // Calculate total including cleaning fee
+    const totalWithCleaningFee = total + cleaningFee;
+    document.getElementById('total').textContent = 'RM' + totalWithCleaningFee;
+}
+
+// Function to calculate the number of nights based on the selected dates
+function calculateNumberOfNights() {
+    const checkInDate = new Date(document.querySelector('input[type="date"]').value);
+    const checkOutDate = new Date(document.querySelectorAll('input[type="date"]')[1].value);
+    const timeDifference = checkOutDate.getTime() - checkInDate.getTime();
+    const numNights = timeDifference / (1000 * 3600 * 24); // Convert milliseconds to days
+    return Math.ceil(numNights); // Round up to the nearest whole number
+}
+
+// Show the price breakdown when the button is clicked
+function showPriceBreakdown() {
+    updatePriceBreakdown();
+}
+
+// Function to handle booking
+function reserveNow() {
+    const numNights = calculateNumberOfNights();
+    const total = (350 + 30) * numNights; // Total price including cleaning fee
+
+   window.location.href = 'RzHomestay_Reservation.html';
+}
+    </script>
+</div>
+</div>
+        
+    <div class="line2"></div>
+
+    <p class="Subtitle" style="font-weight: bold; font-size: 27px;">What this place offers</p>
+
+    <div class="RoomFaciFrame">
+        <h3 class="facititle"><img src="user.png" alt="Room" style="width: 17px; height: auto; vertical-align: text-center;"> Relevants</h3>
+        <ul>
+            <li>Private bathroom</li>
+            <li>Parking</li>
+            <li>Air conditioning</li>
+            <li>Free WiFi</li>
+        </ul>
+    </div>
+
+    <div class="RoomFaciFrame">
+        <h3 class="facititle"><img src="bathroom.png" alt="bathroom" style="width: 17px; height: auto; vertical-align: text-center;"></src> Bathroom</h3>
+        <ul>
+            <li>Toilet paper</li>
+            <li>Towels</li>
+            <li>Bath or shower</li>
+            <li>Shared toilet</li>
+            <li>Private bathroom</li>
+            <li>Toilet</li>
+            <li>Hairdryer</li>
+            <li>Free toiletries</li>
+        </ul>
+    </div>
+
+    <div class="RoomFaciFrame">
+        <h3 class="facititle"><img src="oven.png" alt="Kitchen" style="width: 17px; height: auto; vertical-align: text-center;"> Kitchen</h3>
+        <ul>
+            <li>Kitchenware</li>
+            <li>Electric kettle</li>
+            <li>Washing machine</li>
+            <li>Refrigerator</li>
+            <li>Dinning table</li>
+            
+        </ul>
+    </div>
+
+    <div class="RoomFaciFrame">
+        <h3 class="facititle"><img src="television.png" alt="Room" style="width: 15px; height: auto; vertical-align: text-center;"> Technology</h3>
+        <ul>
+            <li>Flat-screen TV</li>
+            <li>TV</li>
+        </ul>
+    </div>
+
+    <div class="line2" style="height:270px"></div>
+
+    <p class="Subtitle">Where you’ll be</p>
+    <p style="margin-top: -10px; font-size: 19px;"> 14 Jalan Taman Asean, 75250 Melaka, Malaysia  </p>
+    
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3986.7896572077984!2d102.21321467435041!3d2.2326159977476885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31d1f1f038deeb49%3A0x6e1d977e03fd0fc9!2sRz%20Homestay!5e0!3m2!1sen!2smy!4v1715577766712!5m2!1sen!2smy"
+    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+       <div class="line2"></div>
+</body>

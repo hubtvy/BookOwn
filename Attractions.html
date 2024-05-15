@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attractions</title>
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <style>
+        .header {
+            background-image: url(photo3\ -\ Copy.jpg);
+            background-size: cover;
+            background-position: center;
+            padding: 10px 40px;
+            text-align: center;
+            border-bottom: 6px solid #fff;
+            position: relative; /* Added relative positioning */
+            height:140px;
+            border-radius: 20px; 
+            overflow: hidden;
+            background-color: rgba(255, 255, 255, 0.2); 
+        }
+
+       .title{
+            text-align: center; 
+            color:black;
+            padding:2px;
+            width:100%;
+            font-size:25px;
+            position: absolute; /*it doesn't affect the position of other elements you can use properties like top, bottom, left, and right to position it*/ 
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .navigation {
+            position: absolute;
+            top: 110px; /* Adjusted bottom spacing */
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+            padding: 8px;
+            border-radius: 10px;
+            width:100%;
+        }
+
+      .navigation a {
+            color: black;
+            margin: 0 35px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 23px;
+        }
+
+      .navigation a:hover {
+            color: orange;
+        }
+        h2{
+            margin-left:69px;
+            font-size: 30px;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin-top: 20px;
+        }
+
+        .arrow-container {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px auto;
+            width: 1100px; 
+            margin-top:-190px;
+        }
+
+        .arrow {
+            font-size: 50px;
+            cursor: pointer;
+        }
+        .line1 {
+            border-bottom: 1px solid #b9b7b7;
+            margin-top:200px;
+            margin-left: 50px;
+        }
+        #player{
+            margin-top: 4px;
+        }
+        #penangPlayer {
+            margin-top: 4px; /* Adjust this value to move the videos down */
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="title">
+            <h1>BookOwn.com</h1>
+            <div class="navigation">
+                <a href="index.html">Home</a>
+                <a href="MelakaBook.html">Melaka</a>
+                <a href="PenangBook.html">Penang</a>
+                <a href="Attractions.html">Attraction</a>
+            </div>
+        </div>
+    </div>
+
+    <h2 style="margin-left: 380px;">Melaka and Penang Attractions</h2><br>
+    <h2 style="margin-left: 528px;">Melaka</h2>
+
+    <div id="player" style="text-align: center;"></div>
+
+    <div class="arrow-container">
+        <span class="arrow" onclick="previousVideo()">&#10094;</span>
+        <span class="arrow" onclick="nextVideo()">&#10095;</span>
+    </div>
+
+    <script>
+        var player;
+        var videoLinks = ["https://www.youtube.com/embed/nRmazWLNTqo", "https://www.youtube.com/embed/c9pbePLAXas", 
+                           "https://www.youtube.com/embed/_2-kEiQO-ak", "https://www.youtube.com/embed/jb8rnpFgfCU?si=AAIBN4pK517Qhn-W"]; 
+        var currentVideoIndex = 0;
+
+        function loadVideo() {
+            var playerHtml = '<iframe width="750" height="420" src="' + videoLinks[currentVideoIndex] + '" frameborder="0" allowfullscreen></iframe>';
+            document.getElementById("player").innerHTML = playerHtml;
+        }
+
+        function previousVideo() {
+            currentVideoIndex = (currentVideoIndex - 1 + videoLinks.length) % videoLinks.length;
+            loadVideo();
+        }
+
+        function nextVideo() {
+            currentVideoIndex = (currentVideoIndex + 1) % videoLinks.length;
+            loadVideo();
+        }
+
+        // Load the initial video when the page loads
+        window.onload = loadVideo;
+    </script>
+
+<div class="line1"></div>
+
+<h2 style="margin-left: 528px; margin-top:40px">Penang</h2> 
+<div id="penangPlayer" style="text-align: center;"></div>
+
+<div class="arrow-container">
+    <span class="arrow" onclick="previousPenangVideo()">&#10094;</span>
+    <span class="arrow" onclick="nextPenangVideo()">&#10095;</span>
+</div>
+</div> 
+<script>
+
+    var penangPlayer;
+    var penangVideoLinks = ["https://www.youtube.com/embed/IUskqTqjRTU?si=LRwAlwz5_EQtvuI9","https://www.youtube.com/embed/Gb2hMQaRvA0?si=giQ19LmrfllCoed7",
+                             "https://www.youtube.com/embed/p9H7fwZmMGE?si=BC4dsfA7FLPUd6Mp", "https://www.youtube.com/embed/vN6fi-at0AI?si=Av8sYHe4XIT09Bcj"]; 
+    var currentPenangVideoIndex = 0;
+
+    function loadPenangVideo() {
+        var playerHtml = '<iframe width="750" height="420" src="' + penangVideoLinks[currentPenangVideoIndex] + '" frameborder="0" allowfullscreen></iframe>';
+        document.getElementById("penangPlayer").innerHTML = playerHtml;
+    }
+
+    function previousPenangVideo() {
+        currentPenangVideoIndex = (currentPenangVideoIndex - 1 + penangVideoLinks.length) % penangVideoLinks.length;
+        loadPenangVideo();
+    }
+
+    function nextPenangVideo() {
+        currentPenangVideoIndex = (currentPenangVideoIndex + 1) % penangVideoLinks.length;
+        loadPenangVideo();
+    }
+
+    // Load the initial videos when the page loads
+    window.onload = function() {
+        loadVideo();
+        loadPenangVideo();
+    };
+</script>
